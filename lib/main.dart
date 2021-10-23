@@ -34,8 +34,10 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     );
 
     if (file != null) {
-      _file = File(file.files.single.path!);
-      _platformFile = file.files.first;
+      setState(() {
+        _file = File(file.files.single.path!);
+        _platformFile = file.files.first;
+      });
     }
 
     loadingController.forward();
@@ -51,6 +53,11 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     super.initState();
   }
 
+  //////////////////////////////////
+  /// @theflutterlover on Instagram
+  /// 
+  /// https://afgprogrammer.com
+  //////////////////////////////////
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +67,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             SizedBox(height: 100,),
             Image.network(_image, width: 300,),
             SizedBox(height: 50,),
-            // Upload your file
             Text('Upload your file', style: TextStyle(fontSize: 25, color: Colors.grey.shade800, fontWeight: FontWeight.bold),),
             SizedBox(height: 10,),
             Text('File should be jpg, png', style: TextStyle(fontSize: 15, color: Colors.grey.shade500),),
